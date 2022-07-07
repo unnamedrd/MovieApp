@@ -24,7 +24,7 @@ $(document).ready(function () {
                     $('#cast').empty()
                     result.cast.forEach(cast =>
                         {
-                            $(cast).append(`< li > ${cast} </li>`)
+                            $(cast).append(`${cast}`)
                         })
                         $('img').attr('src', result.poster)
                 })
