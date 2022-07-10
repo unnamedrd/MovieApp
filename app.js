@@ -24,13 +24,13 @@ $(document).ready(function () {
                     $('#cast').empty()
                     result.cast.forEach(cast =>
                         {
-                            $(cast).append(`${cast}`)
+                            $(cast).append(`${ cast }`)
+                            
                         })
                         $('img').attr('src', result.poster)
-                })
+                }
         }
     })
        
-}
+})
     
-)
