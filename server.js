@@ -55,10 +55,10 @@ app.get("/get/:id", async (request, response) => {
   try {
     let result = await collection.findOne({
       //object
-      id: ObjectId(request.params.id),
+      "_id": ObjectId(request.params.id),
     });
     response.send(result);
-  } catch {
+  } catch(error) {
     response.status(500).send({ message: error.message });
   }
 });
