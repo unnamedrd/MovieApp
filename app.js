@@ -18,7 +18,7 @@ $(document).ready(function () {
         minLength: 2, 
         select: function (event, ui) {
             console.log(ui.item.id)
-            fetch(`http://localhost:8000/get/${ui.item.id})
+            fetch(`http://localhost:8000/get/${ui.item.id}`)
                 .then(result => result.json())
                 .then(result => {
                     $('#cast').empty()
