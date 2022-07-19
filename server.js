@@ -30,7 +30,7 @@ app.get("/search", async (request, response) => {
       .aggregate([
         //passing in object
         {
-          $Search: {
+          $search: {
             autocomplete: {
               query: `${request.query.query}`,
               path: "title",
