@@ -17,6 +17,8 @@ MongoClient.connect(dbConnectionStr).then((client) => {
   collection = db.collection("movies");
 });
 
+app.set('view engine', 'ejs')
+app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
@@ -64,5 +66,5 @@ app.get("/get/:id", async (request, response) => {
 });
 
 app.listen(process.env.PORT || PORT, () => {
-  console.log("server is running whoot");
+  console.log(`server is running on port = ${PORT}whoot`);
 });
