@@ -12,14 +12,15 @@ let db,
   dbName = "sample_mflix",
   collection;
 
-MongoClient.connect(dbConnectionStr).then((client) => {
+MongoClient.connect(dbConnectionStr)
+  .then((client) => {
   console.log(`Connected to database`);
   db = client.db(dbName);
   collection = db.collection("movies");
 });
 
-app.set('view engine', 'ejs')
-app.use(express.static('public'))
+//app.set('view engine', 'ejs')
+//app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
@@ -38,8 +39,8 @@ app.get("/search", async (request, response) => {
               query: `${request.query.query}`,
               path: "title",
               fuzzy: {
-                maxEdits: 2, //can take 2 subs for chars spelling mistakes
-                prefixLength: 3, //req user to type in at least 3 char before starting autosearch
+                "maxEdits": 2, //can take 2 subs for chars spelling mistakes
+                "prefixLength": 3, //req user to type in at least 3 char before starting autosearch
               },
             },
           },
