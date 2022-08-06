@@ -4,7 +4,7 @@
 $(document).ready(function () {
     $('#title').autocomplete({
         source: async function (request, response) {
-            let data = await fetch(`http://localhost:8000/search?query=${request.term}`)
+            let data = await fetch(`http://localhost:8000/search?query=${request.term}`, {mode: 'cors'})
                 //fetch something, get results back and turn into JSON
                 .then(results => results.json())
                 .then(results => results.map(result => {
